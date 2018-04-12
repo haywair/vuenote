@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>es6_demo2</title>
+</head>
+<body>
+    <h1>es6 demo2展示</h1>
+    <script>
+        function sum(x,y,z){
+            let total = 0;
+            if(x) total+=x;
+            if(y) total+=y;
+            if(z) total+=z;
+            console.log('total:${total}');
+        }
+        sum(5,'',9);
+
+        function sum2(...m){ //...在接受参数的位置表示Rest参数，可以动态的接收参数，再用for遍历
+            let total = 0;
+            for(var i of m){
+                total += i;
+            }
+            console.log('total:${total}');
+        }
+        sum2(4,8,9,10);
+
+        //es6  箭头函数
+
+        let sum3 = (...m)=>{// 多行用{}包括起来
+            let total = 0;
+            for(var i of m){
+                total += i;
+            }
+            console.log('total:${total}');
+        }
+        sum3(4,8,9,10)
+
+        //数组扩展
+        var [x,y] = [4,8];
+        console.log(...[4,8]);// ...和数组结合表示对数组进行拆解
+
+        let arr1 = [1,3];arr2 = [4,8];
+        console.log('concat:'+arr1.concat(arr2));   <=>[...arr1,...arr2]
+
+        //动态扩展数组：
+        var [x,...y] = [4,8,10,30];
+        //变量的拆解
+        let[a,b,c] = 'ES6'; // a = 'E',b = 'S', c = 6
+
+        //函数的扩展
+
+    </script>
+</body>
+</html>

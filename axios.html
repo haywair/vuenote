@@ -1,0 +1,48 @@
+axios get请求：
+methods:{
+    //get  请求
+    get:function(){
+        axios.get('../package1.json',{
+            params:{  //get请求请求参数
+                userId:'999'
+            },
+            headers:{ //header报头参数
+                token:'jack'
+            }
+        }).then(res=>{ //es6回调函数形式
+            this.msg = res.data;
+        }).catch(function(error){ //错误信息
+            console.log('error init.'+error)
+        });
+    },
+    post:function(){
+        axios.post(
+            '../package.json', //请求地址
+            { //请求参数
+                userId:'888'
+            },
+            {
+                headers:{ //请求header头信息
+                    token:'tom'
+                }
+            }
+        ).then(res=>{ // 回调函数形式
+            this.msg = res.data;
+        })
+    },
+    http:function(){  // 封装的请求
+        axios({
+            url:'../package.json',
+            method:'get',
+            data:{//假如post请求
+                userId:'101'
+            },
+            params:{//假如get请求
+                userId:'102'
+            }，
+            headers:{ //请求报头
+                token:'http-test'
+            }
+        })
+    }
+}
